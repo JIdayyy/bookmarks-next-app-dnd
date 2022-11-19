@@ -7,3 +7,53 @@ body {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
+* {
+    box-sizing: border-box;
+}
+
+.wallpaper {
+    background-image: url("../../public/bg.svg");
+    background-color: #0a122c;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white-grad {
+    background: linear-gradient(#041022 0 0) padding-box,
+        /*this is your grey background*/
+            linear-gradient(to right, #9c20aa, #9bfb35b7) border-box;
+    color: #313149;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    animation: animatedgradient 1s ease alternate infinite;
+    background-size: 200% 200%;
+}
+
+.white-grad:hover {
+    background: linear-gradient(#041022 0 0) padding-box,
+        /*this is your grey background*/
+            linear-gradient(to right, #9c20aa, #9bfb35b7) border-box;
+    color: #313149;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    animation: animatedgradient 1s ease alternate infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}

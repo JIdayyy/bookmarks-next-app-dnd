@@ -1,3 +1,20 @@
-const withPlugins = require("next-compose-plugins");
+const nextConfig = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "**",
+            },
+        ],
+    },
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/i,
+            issuer: /\.[jt]sx?$/,
+            use: ["@svgr/webpack"],
+        });
 
-module.exports = withPlugins([], {});
+        return config;
+    },
+};
+module.exports = nextConfig;

@@ -7,10 +7,18 @@ export default {
         global: {
             h1: {
                 fontWeight: 500,
-                marginBottom: "0.5em",
             },
             p: {
-                marginBottom: "1em",
+                fontWeight: 800,
+                color: "white",
+            },
+            label: {
+                color: "white",
+            },
+            input: {
+                color: "white",
+                backgroundColor: "transparent",
+                border: "1px solid #11203F",
             },
         },
     },
