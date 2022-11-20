@@ -1,7 +1,7 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { BookMark } from "@prisma/client";
 import Image from "next/image";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
 type Props = {
     bookMark: BookMark;
@@ -30,6 +30,7 @@ export default function BookMarkCard({ bookMark, index }: Props): JSX.Element {
                     >
                         <Text fontSize={12}>{bookMark.title}</Text>
                         <Image
+                            alt="bookmark"
                             objectFit="cover"
                             width={40}
                             height={40}

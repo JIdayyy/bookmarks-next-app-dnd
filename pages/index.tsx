@@ -176,7 +176,6 @@ const Home: NextPageWithLayout = () => {
                         {(droppableProvided) => {
                             return (
                                 <TrashIcon
-                                    isDragging={isDragging}
                                     {...droppableProvided.droppableProps}
                                     ref={droppableProvided.innerRef}
                                 />

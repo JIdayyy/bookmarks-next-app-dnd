@@ -1,9 +1,7 @@
 import { getUserFromToken } from "./../../../src/utils/authentifaction";
 import { BookMark } from "@prisma/client";
-import IncomingForm from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../prisma/client";
-import { METHODS } from "http";
 
 export const config = {
     api: {
@@ -23,6 +21,11 @@ const bookMarksHandlers = async (
         const user = await getUserFromToken(
             req.headers.authorization?.split(" ")[1] || "",
         );
+
+        if (!user) {
+            return res.status(401).json({ message: "Not authorized" });
+        }
+
         const bookmarks = await prisma.bookMark.findMany({
             where: {
                 user_id: user.id as string,

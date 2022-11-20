@@ -17,7 +17,6 @@ import {
 import HorizontalLogo from "@components/atoms/HLogo";
 import AuthLayout from "@components/Layouts/AuthLayout";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -26,13 +25,14 @@ import { AiOutlineMail } from "react-icons/ai";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ImKey } from "react-icons/im";
 import axiosInstance from "src/utils/axiosInstance";
+import { NextPageWithLayout } from "pages/_app";
 
 interface SignInCredentials {
     email: string;
     password: string;
 }
 
-export default function SignIn(): JSX.Element {
+const SignIn: NextPageWithLayout = () => {
     const { handleSubmit, register } = useForm<SignInCredentials>();
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
@@ -166,6 +166,8 @@ export default function SignIn(): JSX.Element {
             </Stack>
         </Center>
     );
-}
+};
 
-SignIn.getLayout = (page: any) => <AuthLayout>{page}</AuthLayout>;
+SignIn.getLayout = (page) => <AuthLayout>{page}</AuthLayout>;
+
+export default SignIn;

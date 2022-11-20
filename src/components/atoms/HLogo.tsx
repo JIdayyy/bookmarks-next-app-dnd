@@ -1,7 +1,7 @@
-import { Flex, Icon, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import Logo from "../../../public/logo.svg";
 
-const HorizontalLogo = () => {
+const HorizontalLogo = (): JSX.Element => {
     return (
         <Flex justifyContent="center" alignItems="center">
             <Logo />

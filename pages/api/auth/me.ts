@@ -3,7 +3,10 @@ import * as jose from "jose";
 
 const secret = process.env.JWT_SECRET || "";
 
-const authMeHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const authMeHandler = async (
+    req: NextApiRequest,
+    res: NextApiResponse,
+): Promise<void> => {
     if (req.method === "POST") {
         console.log(secret);
         const token = req.headers.authorization?.split(" ")[1];

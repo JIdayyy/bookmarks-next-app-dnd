@@ -5,8 +5,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 const MotionFlex: CustomDomComponent<FlexProps> = motion(Flex);
 
-const TrashIcon = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
-    const { isDragging } = props;
+const TrashIcon = forwardRef<HTMLDivElement, FlexProps>((_, ref) => {
     return (
         <MotionFlex
             ref={ref}

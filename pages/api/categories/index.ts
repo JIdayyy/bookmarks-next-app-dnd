@@ -19,6 +19,10 @@ const categoriesHandlers = async (
         const token = req.headers.authorization?.split(" ")[1] || "";
         const user = await getUserFromToken(token);
 
+        if (!user) {
+            return res.status(401).json({ message: "Not authorized" });
+        }
+
         const category = await prisma.category.findMany({
             where: {
                 user_id: user.id as string,

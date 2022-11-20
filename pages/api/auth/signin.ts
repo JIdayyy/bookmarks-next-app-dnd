@@ -6,7 +6,10 @@ import bcrypt from "bcryptjs";
 
 const secret = process.env.JWT_SECRET || "";
 
-const signInHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const signInHandler = async (
+    req: NextApiRequest,
+    res: NextApiResponse,
+): Promise<void> => {
     if (req.method === "POST") {
         const { email, password } = req.body;
 
