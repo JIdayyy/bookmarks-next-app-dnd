@@ -1,4 +1,4 @@
-import { Flex, Spinner } from "@chakra-ui/react";
+import { Center, Flex, Spinner } from "@chakra-ui/react";
 import AppLayout from "@components/Layouts/AppLayout";
 import { NextPageWithLayout } from "./_app";
 import BookMarkByCategory from "@components/BookMark/BookMarkByCategory";
@@ -133,15 +133,12 @@ const Home: NextPageWithLayout = () => {
         },
     );
 
-    if (isLoading) return <Spinner />;
-
     const onDragEnd = (result: DropResult) => {
         setIdDragging(false);
 
         if (!result.destination) return;
 
         if (result.destination?.droppableId === "TRASH") {
-            console.log("TRASH");
             return deleteBookmark({
                 id: result.draggableId,
                 categoryId: result.source.droppableId,
@@ -156,6 +153,13 @@ const Home: NextPageWithLayout = () => {
             oldPosition: result.source.index,
         });
     };
+
+    if (isLoading)
+        return (
+            <Center pt={150} w="full" h="full">
+                <Spinner color="white" />
+            </Center>
+        );
 
     return (
         <Flex w="full" pt={150} flexDirection="column" h="full">

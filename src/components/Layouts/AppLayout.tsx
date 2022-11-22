@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
 import Navbar from "@components/Navbar";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect } from "react";
@@ -18,10 +18,6 @@ export default function AppLayout({ children }: IProps): JSX.Element {
         }
     }, [user]);
 
-    if (!user) {
-        return <Box />;
-    }
-
     return (
         <Flex
             px={[4, 4, 4, 4, 0]}
@@ -33,7 +29,7 @@ export default function AppLayout({ children }: IProps): JSX.Element {
         >
             <Navbar />
             <Box w="full" maxW="7xl">
-                {children}
+                {user ? children : <Spinner />}
             </Box>
         </Flex>
     );
