@@ -29,7 +29,7 @@ export default function AppLayout({ children }: IProps): JSX.Element {
         >
             <Navbar />
             <Box w="full" maxW="7xl">
-                {user ? children : <Spinner />}
+                {user.id ? children : <Spinner />}
             </Box>
         </Flex>
     );

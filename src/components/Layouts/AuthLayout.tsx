@@ -12,6 +12,7 @@ interface IProps {
 export default function AuthLayout({ children }: IProps): JSX.Element {
     const { setUser } = useAuth();
     const router = useRouter();
+
     const { mutate, isLoading } = useMutation(
         (data) => axiosInstance.post("/auth/me", data),
         {
