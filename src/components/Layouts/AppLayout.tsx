@@ -13,7 +13,7 @@ export default function AppLayout({ children }: IProps): JSX.Element {
     const router = useRouter();
 
     useEffect(() => {
-        if (!user) {
+        if (!user.id) {
             router.push("/auth/signin");
         }
     }, [user]);

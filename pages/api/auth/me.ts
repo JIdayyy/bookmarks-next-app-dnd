@@ -8,7 +8,6 @@ const authMeHandler = async (
     res: NextApiResponse,
 ): Promise<void> => {
     if (req.method === "POST") {
-        console.log(secret);
         const token = req.headers.authorization?.split(" ")[1];
 
         if (!token) {
